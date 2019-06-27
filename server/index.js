@@ -4,7 +4,9 @@ const pino = require("express-pino-logger")();
 const path = require("path");
 const app = express();
 const port = process.env.PORT || 5000;
-require("dotenv").config();
+const Checker = require("./checker.js");
+
+//MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ extended: false }));
 app.use(pino);
@@ -13,11 +15,10 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-// const routes = require("./routes");
-// app.use("/", routes());
-
-app.get("/test", (req, res) => {
-  res.send({ message: "hello" });
+//
+app.post("/api/checkDistance", (req, res) => {
+  let checker = new Checker();
+  res.send({ atHome: checker.checkDistance(req.body) });
 });
 
 app.get("*", function(req, res) {

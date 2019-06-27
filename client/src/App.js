@@ -1,34 +1,30 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import Home from "./components/Home";
+import Auth from "./components/Authj";
 
 class App extends Component {
   state = {};
 
-  componentDidMount() {
-    fetch("/test", {
-      method: "get",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => res.json())
-      .then(state => this.setState(state));
-  }
-
   render() {
     return (
-      <Container className="">
-        <Row className="text-center">
+      <Container className="text-left">
+        <Row>
           <Col>
             <h1>LockDoor</h1>
+            <p>Never Forget To Lock Your Door Again!</p>
           </Col>
         </Row>
-        <Row className="text-center">
+        <Row>
           <Col>
-            <Button>Set Home Location</Button>
+            <Home />
           </Col>
         </Row>
+        {/* <Row>
+          <Col>
+            <Auth />
+          </Col>
+        </Row> */}
       </Container>
     );
   }
