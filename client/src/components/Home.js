@@ -76,9 +76,18 @@ class Home extends Component {
 
   render() {
     let message;
-    if (this.state.atHome == null) message = "Please Set Home Location.";
-    else if (this.state.atHome == true) message = "You're at Home!";
-    else message = "Lock Your Door!";
+    //check to see if geolocation is enabled
+    // chrome and firefox have been changing the permissions for geolocation
+    // so i had to hack my way around it
+    if (this.state.currentLocation.latitude == null) {
+      message = "Please allow Geolocation Permissions in Browser";
+    } else {
+      //check if home location is set
+      if (this.state.atHome == null) message = "Please Set Home Location.";
+      else if (this.state.atHome == true) message = "You're at Home!";
+      else message = "Lock Your Door!";
+    }
+
     return (
       <Container className="text-center">
         <Row className="my-2">
