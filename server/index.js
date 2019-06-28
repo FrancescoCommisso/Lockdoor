@@ -18,7 +18,13 @@ app.listen(port, () => {
 //Our only api endpoint
 app.post("/api/checkDistance", (req, res) => {
   let checker = new Checker();
-  res.send({ atHome: checker.checkDistance(req.body) });
+  let result = checker.checkDistance(req.body);
+  if (typeof result === "boolean") {
+    // check if result is boolean if not send server error
+    res.send({ atHome: result });
+  } else {
+    res.sendStatus(500);
+  }
 });
 
 //Serve content

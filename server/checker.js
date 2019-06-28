@@ -6,12 +6,16 @@ class Checker {
   constructor() {
     //checks distance between 2 coordinates
     this.checkDistance = locations => {
-      let current = locations.current;
-      let home = locations.home;
-      let d = geolib.getDistance(current, home);
-      console.log("Distance: " + d);
-      if (d > 200) return false;
-      return true;
+      try {
+        let current = locations.current;
+        let home = locations.home;
+        let d = geolib.getDistance(current, home);
+        console.log("Distance: " + d);
+        if (d > 200) return false;
+        return true;
+      } catch (error) {
+        console.log("Check Distance Error: " + error);
+      }
     };
   }
 }
