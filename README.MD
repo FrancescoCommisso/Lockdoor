@@ -26,6 +26,6 @@ Francesco Commisso
 Bonus Question:
 
 In order to scale this application to support hundres of thousands of users, I would implement a Microservices
-Oriented Architecture, in which the application is decomposed into various micro applications. Application features like: User management, Authentication, and user notifications would all have their own micro databases with their own scheme and share information over https messages.
+Oriented Architecture, in which the application is decomposed into various microapps. Features like: User management, Authentication, and user notifications would all have their own micro databases/schema with their own and share information over https messages.
 
 Each of these microservices would be self contained application instances run inside Docker images. During times of high user volume, additional instances of each microservice could be activiated when needed.
