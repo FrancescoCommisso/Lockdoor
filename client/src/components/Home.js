@@ -8,7 +8,7 @@ class Home extends Component {
     atHome: null
   };
   componentDidMount() {
-    this.setPositionWatcher(); //SET THE POSITION WATCHER ONLY AFTER THE COMPONENT HAS MOUNTED
+    this.setPositionWatcher(); //set position watcher only after component has mounted
   }
 
   setPositionWatcher = () => {
@@ -23,7 +23,7 @@ class Home extends Component {
             }
           },
           () => {
-            //ONLY CALCULATE DISTANCE WHEN homeLocation IS SET
+            //only calculate distance if homeLocation is set
             if (this.state.homeLocation.latitude) this.checkDistance();
           }
         );
@@ -38,13 +38,14 @@ class Home extends Component {
     );
   };
 
-  //SEND THE USER LOCATION AND HOME LOCATION TO THE SERVER FOR DISTANCE CALCULATION
+  //send currentLocation and homeLocation to server for distance calculation
   checkDistance = () => {
     let locations = {
       current: this.state.currentLocation,
       home: this.state.homeLocation
     };
-    //checkDistances RETURNS TRUE IF DIST BETWEEN homeLocation AND currentLocation IS GREATER THAN 200
+    //returns true if distance between currentLocation and homeLocation
+    // is less than 200. Otherwise returns false.
     fetch("/api/checkDistance", {
       method: "post",
       headers: {

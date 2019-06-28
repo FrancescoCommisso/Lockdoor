@@ -20,11 +20,6 @@ class App extends Component {
             <Home />
           </Col>
         </Row>
-        {/* <Row>
-          <Col>
-            <Auth />
-          </Col>
-        </Row> */}
       </Container>
     );
   }

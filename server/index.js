@@ -21,7 +21,7 @@ app.post("/api/checkDistance", (req, res) => {
   res.send({ atHome: checker.checkDistance(req.body) });
 });
 
-//Serve Content
+//Serve content
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "../client/build/index.html"), function(
     err

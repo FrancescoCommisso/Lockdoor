@@ -1,6 +1,6 @@
 const geolib = require("geolib"); //Good geolocation calculation library
 
-//Checker objects are used to encaspulate coordinate calculation functionality
+//AN OBJECT USED TO ENCASPULATE ALL LOGIC REGARDING COORDINATE OPERATIONS
 
 class Checker {
   constructor() {
